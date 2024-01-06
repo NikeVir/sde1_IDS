@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# INTUITIVE DATA SOLUTIONS PRIVATE LIMITED SDE-1 Task
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Name - Nikhil Yadav
 
-## Available Scripts
+
+## 1. Install NODE_MODULES of frontend and backend using "npm install" command
 
 In the project directory, you can run:
 
-### `npm start`
+### 2. Locate backend dir and start Server using "nodemon start" and after that `npm run start` to start Frontend
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![7](https://github.com/NikeVir/sde1_IDS/assets/82455622/a18df5fb-f159-4338-89d2-ac0ee7057085)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+### TECK STACK
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+REACT
+MONGODB
+EXPRESS
+NODE.js
 
-### `npm run build`
+## 1. Authentication with JWT and ERROR Handling
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![1](https://github.com/NikeVir/sde1_IDS/assets/82455622/00a2c1f7-bc5e-4301-85dd-b9828b23fedf)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![3](https://github.com/NikeVir/sde1_IDS/assets/82455622/d8fe154e-c5d5-4a59-aed7-b46f2a0254ed)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 2.User Dashboard with Screen Time Tracking
 
-### `npm run eject`
+![2](https://github.com/NikeVir/sde1_IDS/assets/82455622/ff8ee3cb-0717-4e92-b8e1-328e4b43e891)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 3. Admin DashBoard with daily ,weekly and monthly active user count && user table with filters
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![4](https://github.com/NikeVir/sde1_IDS/assets/82455622/a4fcf4e3-dce4-4a3c-95b5-2c40bed22a93)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 1. Upload user data directly to the database from excel sheet
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![6](https://github.com/NikeVir/sde1_IDS/assets/82455622/4daa901b-2132-40d1-bc3d-be4c2da5a0cb)
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
