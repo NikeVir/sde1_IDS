@@ -19,11 +19,24 @@ const UserLogin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const history  = useNavigate();
+
+
   useEffect(() => {
     let token = localStorage.getItem('token');
-    if(token){
-      history('/user/dashboard');
+    const verify = async(token) => {
+      const response = await axios.get(`http://localhost:8000/user/api/tokenverify`, {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      console.log(response)
+      if(response.data.message != "Unauthorized"){
+        history('/user/dashboard');
+      }
     }
+    verify(token)
+  
   }, []);
   const handleSubmit = async(e) => {
     e.preventDefault();

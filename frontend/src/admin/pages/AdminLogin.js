@@ -21,10 +21,22 @@ const AdminRegister = () => {
   const navigate = useNavigate();
   useEffect(() => {
     let token = localStorage.getItem('admintoken');
-    if(token){
-      navigate('/admin/dashboard');
+    const verify = async(token) => {
+      const response = await axios.get(`http://localhost:8000/user/api/tokenverify`, {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      console.log(response)
+      if(response.data.message != "Unauthorized"){
+        history('/admin/dashboard');
+      }
     }
-   }, []);
+    verify(token)
+  
+  }, []);
+
   const handleSubmit = async(e) => {
     e.preventDefault();
     const device = detectDeviceType();

@@ -6,7 +6,7 @@ const ScreenTime = require('../models/UserActivity');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const moment = require('moment');
-
+const JWT_TOKEN = "FSFSJHFIEBSFEBSF15646&^%^" 
 router.get('/', (req, res) => {
   res.send('User Route');
 });
@@ -68,7 +68,7 @@ router.post('/api/login', async (req, res) => {
 
 
 
-    const token = jwt.sign({ userId: user._id }, 'your-secret-key', { expiresIn: '1h' });
+    const token = jwt.sign({ userId: user._id }, JWT_TOKEN, { expiresIn: '1h' });
 
     res.status(200).json({ token, user });
   } catch (error) {
@@ -87,7 +87,7 @@ router.post('/api/record', async (req, res) => {
   }
 
   try {
-    jwt.verify(token, 'your-secret-key', async (err, decoded) => {
+    jwt.verify(token,JWT_TOKEN, async (err, decoded) => {
       if (err) {
         return res.status(401).json({ message: 'Invalid token' });
       }
@@ -108,6 +108,24 @@ router.post('/api/record', async (req, res) => {
     res.status(500).json({ message: 'Internal Server Error' });
   }
 });
+router.get('/api/tokenverify', async (req, res) => {
+  try{
+    console.log(req.headers.authorization)
+    const token = req.headers.authorization && req.headers.authorization.split(' ')[1];
+    if (!token) {
+      return res.json({ message: 'Unauthorized' });
+    }
+    jwt.verify(token,JWT_TOKEN, async (err, decoded) => {
+      if (err) {
+        return res.json({ message: 'Unauthorized' });
+      }
+      res.json({ message: 'Authorized' });
+    });
+  }
+  catch(error){
+    console.log(error);
+  }
+})
 
 
 module.exports = router;

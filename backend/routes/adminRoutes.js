@@ -6,6 +6,8 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const User = require('../models/User');
 
+const JWT_TOKEN = "FSFSJHFIEBSFEBSF15646&^%^" 
+
 router.get('/', (req, res) => {
   res.send('Admin Route');
 });
@@ -50,7 +52,7 @@ router.post('/api/login', async (req, res) => {
       return res.status(401).json({ message: 'Invalid credentials' });
     }
 
-    const token = jwt.sign({ adminId: admin._id }, 'your-secret-key', { expiresIn: '1h' });
+    const token = jwt.sign({ adminId: admin._id }, JWT_TOKEN, { expiresIn: '1h' });
 
     res.status(200).json({ token, admin });
   } catch (error) {
@@ -67,7 +69,7 @@ router.get('/api/active_count', async (req, res) => {
   }
 
   try {
-    jwt.verify(token, 'your-secret-key', async (err, decoded) => {
+    jwt.verify(token, JWT_TOKEN, async (err, decoded) => {
       if (err) {
         return res.status(401).json({ message: 'Unauthorized' });
       }
@@ -109,7 +111,7 @@ router.get('/api/top-users', async (req, res) => {
   }
 
   try {
-    jwt.verify(token, 'your-secret-key', async (err, decoded) => {
+    jwt.verify(token, JWT_TOKEN, async (err, decoded) => {
       if (err) {
         return res.status(401).json({ message: 'Unauthorized' });
       }
@@ -179,7 +181,7 @@ router.post('/api/upload', async (req, res) => {
   }
 
   try {
-    jwt.verify(token, 'your-secret-key', async (err, decoded) => {
+    jwt.verify(token, JWT_TOKEN, async (err, decoded) => {
       if (err) {
         return res.status(401).json({ message: 'Unauthorized' });
       }
@@ -206,6 +208,25 @@ router.post('/api/upload', async (req, res) => {
   } catch (error) {
     console.error('Error inserting users:', error);
     res.status(500).json({ message: 'Internal Server Error' });
+  }
+})
+
+router.get('/api/tokenverify', async (req, res) => {
+  try{
+    const token = req.headers.authorization && req.headers.authorization.split(' ')[1];
+    if (!token) {
+      return res.status(401).json({ message: 'Unauthorized' });
+    }
+    const decoded = jwt.verify(token, JWT_TOKEN);
+    if(decoded){
+      return res.status(200).json({ message: 'Authorized' });
+    }
+    else{
+      return res.status(401).json({ message: 'Unauthorized' });
+    }
+  }
+  catch(error){
+    console.log(error);
   }
 })
 module.exports = router;
